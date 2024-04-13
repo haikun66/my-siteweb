@@ -1,0 +1,20 @@
+.App-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.App-link:hover {
+    color: #02141a; /* Added semicolon */
+    text-decoration: none;
+}
+
+.nav{
+    background: #fff1c1;
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
