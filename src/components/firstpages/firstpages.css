@@ -1,0 +1,19 @@
+.firstAnimation{
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: #000;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image {
+    background-image: url(./pdpstyler.png);
+    width: 400px;
+    height: 400px;
+    background-size: cover; /* Ajuster la taille de l'image pour remplir le conteneur */
+    background-position: center;
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
