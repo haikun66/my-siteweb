@@ -16,7 +16,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-evenly;
     
 }
 .image {
@@ -24,7 +24,6 @@
     width: 60%;
     -webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
-    animation: grayscale-animation 5s ease-in-out 5s; /* Nom de l'animation, durée, fonction de temporisation et délai de démarrage */
 }
 .image:hover {
     -webkit-filter: grayscale(0%);
@@ -34,14 +33,41 @@
     font-family: 'Raleway',
     sans-serif;
     color:#fff;
-    text-align: right;
     margin-right: 3em;
-    line-height: 1.8;   
+    line-height: 1.8;    
 }
 .intro{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 5%;
+
+}
+.ph{
+    position: relative;
+    color: hsl(0, 0%, 68%);
+    font-weight: bold!important;
+    font-family: "Anonymous Pro", monospace!important;
+    overflow: hidden;
+    border-right: 2px solid hsl(0, 0%, 80%);
+    white-space: nowrap;
+    animation: typewriter 8s steps(44, end) 1s 1 normal both, blinkTextCursor 500ms infinite;
+}
+@keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+        width: 100%;
+    }
+  }
+  @keyframes blinkTextCursor {
+    from {
+      border-right-color: hsl(0, 0%, 80%);
+    }
+    to {
+      border-right-color: transparent;
+    }
 }
 @keyframes grayscale-animation {    
     100% {
