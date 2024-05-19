@@ -24,6 +24,7 @@
     width: 60%;
     -webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
+    animation: grayscale-animation 5s ease-in-out 5s; /* Nom de l'animation, durée, fonction de temporisation et délai de démarrage */
 }
 .image:hover {
     -webkit-filter: grayscale(0%);
@@ -41,4 +42,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+@keyframes grayscale-animation {    
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
 }
