@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./SL_101619_24150_55.jpg);
+    background-image: url(./NEUMORPHIC_CIRCLES_BACKGROUND.jpg);
     background-size: cover; /* Ajuster la taille de l'image pour remplir le conteneur */
     background-position: center;
 }
