@@ -7,7 +7,6 @@ function FirstPage() {
         <div className='firstAnimation'>
             <div className='contenu'>
                 <div className='intro'>
-                    
                     <TypeAnimation
                         style={{ whiteSpace: 'pre-line', display: 'flex', color:'white' }}
                         sequence={[
@@ -20,7 +19,7 @@ function FirstPage() {
                     />
                     <h2 className='text'>À propos de moi</h2>
                     <TypeAnimation
-                        style={{ whiteSpace: 'pre-line', fontSize: '1rem', display: 'flex' , color:'white'}}
+                        style={{ whiteSpace: 'pre-line', fontSize: '1,5rem', display: 'flex' , color:'white'}}
                         sequence={[
                             `Je suis Hocine Ghouali, un concepteur et développeur d'applications passionné par la programmation et l'informatique.\n
                             Depuis que j'ai découvert le monde fascinant du développement logiciel, je suis constamment poussé par le désir de créer des applications innovantes qui résolvent des problèmes réels et améliorent la vie des gens.\n
