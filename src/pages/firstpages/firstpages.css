@@ -1,0 +1,120 @@
+/* Styles généraux */
+.firstAnimation {
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: #000;
+    background-image: url(./NEUMORPHIC_CIRCLES_BACKGROUND.jpg);
+    background-size: cover; /* Ajuster la taille de l'image pour remplir le conteneur */
+    background-position: center;
+}
+
+.contenu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.image {
+    height: 75%;
+    width: 60%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.image:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.text {
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    margin-right: 3em;
+    line-height: 1.8;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 60%);
+    padding-left: 5%;
+}
+
+@keyframes grayscale-animation {
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+}
+
+/* Media queries pour iPhones */
+@media (max-width: 767px) {
+    .firstAnimation {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .contenu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image {
+        width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .text {
+        margin-right: 0;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .intro {
+        width: 90%;
+        padding-left: 0;
+        align-items: center;
+    }
+}
+
+/* Media queries pour tablettes */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .firstAnimation {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .contenu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image {
+        width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .text {
+        margin-right: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .intro {
+        width: 80%;
+        padding-left: 0;
+        align-items: center;
+    }
+}

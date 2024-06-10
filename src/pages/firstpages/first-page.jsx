@@ -11,7 +11,7 @@ function FirstPage() {
                         style={{ whiteSpace: 'pre-line', display: 'flex', color:'white' }}
                         sequence={[
                             `Mon Portfolio`, // actual line-break inside string literal also gets animated in new line, but ensure there are no leading spaces
-                            10000,
+                            1000,
                         ]}
                         wrapper='h1'
                         repeat={0}
@@ -26,8 +26,9 @@ function FirstPage() {
                             Mon parcours m'a permis d'acquérir une solide expertise dans divers langages de programmation, frameworks et technologies, me permettant ainsi de transformer mes idées en solutions concrètes.\n
                             Explorez mes projets ci-dessous pour avoir un aperçu de mon travail, et n'hésitez pas à me contacter pour en savoir plus sur mes compétences et expériences.
                             `, // actual line-break inside string literal also gets animated in new line, but ensure there are no leading spaces
-                            1000,
+                            500,
                         ]}
+                        speed={100}
                         repeat={0}
                         cursor={false}
                     />

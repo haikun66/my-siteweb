@@ -5,9 +5,9 @@ function Navbar() {
         <nav className='nav'>
             <img src="" alt="" />
             <div >
-                <a href="/projet-1" className='App-link'>Projet 1</a>
-                <a href="/projet-1" className='App-link'>Projet 1</a>
-                <a href="/projet-1" className='App-link'>Projet 1</a>
+                <a href="/projet-1" className='App-link'>Contact</a>
+                <a href="/projet-1" className='App-link'>Projets</a>
+                <a href="/projet-1" className='App-link'>A propos</a>
             </div>
         </nav>
     );
