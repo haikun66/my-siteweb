@@ -7,12 +7,12 @@
 }
 
 .App-link:hover {
-    color: #ffffff; /* Added semicolon */
+    color: #6D72C3; /* Added semicolon */
     text-decoration: none;
 }
 
 .nav{
-    background: #7070708e;
+    background: #E5D4ED;
     height: 10vh;
     width: 100%;
     display: flex;

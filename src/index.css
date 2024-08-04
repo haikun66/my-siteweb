@@ -15,5 +15,6 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: auto; /* Assurez-vous que le défilement est activé */
+  overflow-y: hidden; /* Assurez-vous que le défilement est activé */
+
 }

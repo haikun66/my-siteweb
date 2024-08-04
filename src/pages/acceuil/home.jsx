@@ -19,15 +19,29 @@ function Home() {
         <div className="contact" >
           <div className="contact-left" >
             <form className="form"  action="" method="post">
-              <label htmlFor="prenom">Prenom :</label>
-              <input type="text" name="prenom" id="prenom" />
-              <label htmlFor="nom">nom</label>
-              <input type="text" name="nom" id="nom" />
-              <label htmlFor="mail">mail</label>
-              <input type="email" name="mail" id="mail" />
-              <label htmlFor="message">message</label>
-              <input type="text" name="message" id="message" />
-              <button type="submit">Envoyer</button>
+              <div className='input-group1 input-group'>
+                <label htmlFor="prenom">Prenom :</label>
+                <input type="text" name="prenom" id="prenom" placeholder='Entrer votre prénom' className='prenom'/>
+              </div>
+              
+              <div className='input-group1 input-group'>
+                <label htmlFor="nom">nom</label>
+                <input type="text" name="nom" id="nom" placeholder='Entrer votre nom' className='nom'/>
+              </div>
+    
+              <div className='input-group2 input-group'>
+                <label htmlFor="mail">mail</label>
+                <input type="email" name="mail" id="mail" placeholder='Entrer une email valide' className='email'/>
+              </div>
+              
+              <div className='input-group3 input-group'>
+                <label htmlFor="message">message</label>
+                <input type="text" name="message" id="message" placeholder='Ecriver votre message' className='text'/>
+              </div>
+            
+              <div className='button input-group'>
+                <button type="submit" className='submit'>Envoyer</button>
+              </div>
             </form>
           </div>
           <div className='container-box'>
