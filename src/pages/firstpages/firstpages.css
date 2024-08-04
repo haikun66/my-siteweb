@@ -24,11 +24,6 @@
     filter: grayscale(100%);
 }
 
-.image:hover {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-}
-
 .text {
     font-family: 'Raleway', sans-serif;
     color: #fff;
@@ -42,17 +37,6 @@
     align-items: flex-start;
     width: calc(100% - 60%);
     padding-left: 5%;
-}
-
-@keyframes grayscale-animation {
-    100% {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
-    }
-    0% {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
 }
 
 /* Media queries pour iPhones */

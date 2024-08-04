@@ -13,11 +13,15 @@ const HideOnScroll = ({ children }) => {
   const handleScroll = useCallback(() => {
     const currentScrollTop = getScrollTop();
 
+    console.log('Scroll event triggered');
+    console.log('currentScrollTop:', currentScrollTop);
+    console.log('lastScrollTop:', lastScrollTop);
+
     if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-      // L'utilisateur défile vers le bas et dépasse 100px
-      gsap.to(elementRef.current, { opacity: 0, y: -100, duration: 0.5 });
+      console.log('Scrolling down');
+      gsap.to(elementRef.current, { opacity: 0, y: -100, duration: 1 });
     } else if (currentScrollTop < lastScrollTop) {
-      // L'utilisateur défile vers le haut
+      console.log('Scrolling up');
       gsap.to(elementRef.current, { opacity: 1, y: 0, duration: 0.5 });
     }
 
@@ -25,14 +29,16 @@ const HideOnScroll = ({ children }) => {
   }, [lastScrollTop]);
 
   useEffect(() => {
+    console.log('Adding scroll event listener');
     window.addEventListener('scroll', handleScroll);
     return () => {
+      console.log('Removing scroll event listener');
       window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
 
   return (
-    <div ref={elementRef} style={{zIndex: 10 }}>
+    <div ref={elementRef} style={{ position: 'sticky', top: 0, zIndex: 10 }}>
       {children}
     </div>
   );

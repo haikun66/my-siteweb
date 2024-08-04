@@ -7,11 +7,11 @@ import Home from './pages/acceuil/home';
 function App() {
   return (
     <div className="App">
-    <HideOnScroll>
-      <FirstPage className="top"/>
-    </HideOnScroll>
-    <Home />
-    <ScrollToTop/>
+      <HideOnScroll>
+        <FirstPage className="top" />
+      </HideOnScroll>
+      <Home />
+      <ScrollToTop />
     </div>
   );
 }
