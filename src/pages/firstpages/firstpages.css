@@ -2,6 +2,7 @@
 .firstAnimation {
     width: 100vw;
     height: 100vh;
+    position: relative;
     z-index: 0;
     background: #000;
     background-image: url(./NEUMORPHIC_CIRCLES_BACKGROUND.jpg);
@@ -38,7 +39,49 @@
     width: calc(100% - 60%);
     padding-left: 5%;
 }
-
+.continue-btn{
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    border-radius: 30px;
+}
+.continue-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    border-radius: 30px;
+}
+.continue-btn span {
+    display: inline-block;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.continue-btn:hover::before {
+    transform: translateX(0); /* Déplace l'élément pour qu'il couvre le bouton */
+}
+.continue-btn:hover span {
+    transform: translateY(0);
+    opacity: 1;
+}
 /* Media queries pour iPhones */
 @media (max-width: 767px) {
     .firstAnimation {

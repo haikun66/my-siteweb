@@ -32,6 +32,7 @@ function FirstPage() {
                         repeat={0}
                         cursor={false}
                     />
+                    <button className='continue-btn'><span>continuer</span></button>
                 </div>
                 <img className='image' src={pdpimg} alt="pdp" />
             </div>

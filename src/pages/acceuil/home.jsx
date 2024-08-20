@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/navbar/navbar';
-import ScrollToTop from '../../components/scrolltop';
 import '../acceuil/home.css';
 const mail = require('./media/email.png');
 const tel = require('./media/telephone.png');
@@ -10,13 +8,10 @@ const github = require('./media/github-logo.png');
 function Home() {
   return (
     <div className="home">
-      <Navbar></Navbar>
-      
       <section className="projects">
         <h2>Mes Projets</h2>
         Insérez ici vos projets sous forme de liens vers leurs pages individuelles 
       </section>
-
       <section className='section'>
         <h2 className='title2'>Contact</h2>
         <div className="contact" >
@@ -71,7 +66,6 @@ function Home() {
       <footer>
         <p>&copy; 2024 Mon Portfolio</p>
       </footer>
-      <ScrollToTop/>
     </div>
   );
 }

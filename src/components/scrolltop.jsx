@@ -1,38 +1,22 @@
-// src/components/ScrollToTop.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 const arrow = require('./vecteezy_top-arrow-icon-png-on-transparent-background_17785072.png');
-const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
 
-  // Fonction pour afficher le bouton lorsque l'utilisateur fait défiler vers le bas
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  // Fonction pour faire défiler vers le haut
+const ScrollToTop = ({ showButton, onScrollToTopClick }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+    if (onScrollToTopClick) {
+      onScrollToTopClick(); // Appelle le callback pour réafficher l'élément
+    }
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
 
   return (
     <div className="scroll-to-top">
-      {isVisible && (
+      {showButton && (
         <div onClick={scrollToTop} style={styles.scrollToTopButton}>
-          <img src={arrow} alt="fleche" style={styles.arrow}/>
+          <img src={arrow} alt="fleche" style={styles.arrow} />
         </div>
       )}
     </div>
