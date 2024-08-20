@@ -1,0 +1,323 @@
+<html><head><base href="https://portfolio-dev.example.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Créatif - Carrousel de Projets Animé</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --text-color: #2d3436;
+    --bg-color: #f9f9f9;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .carousel-container {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .project {
+    flex: 0 0 100%;
+    padding: 3rem;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .project.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .project-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: width 0.5s ease;
+  }
+
+  .project.active .project-title::after {
+    width: 100%;
+  }
+
+  .project-description {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skill {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(162, 155, 254, 0.4);
+  }
+
+  .project-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  .nav-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .nav-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+  }
+
+  .progress-bar {
+    height: 5px;
+    background-color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .project-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(108, 92, 231, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .project-details:hover {
+    transform: translateY(-5px);
+  }
+
+  .project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .project-link:hover {
+    color: var(--secondary-color);
+  }
+
+  @media (max-width: 768px) {
+    .project {
+      padding: 2rem;
+    }
+    .project-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="project">
+        <div class="project-icon">🚀</div>
+        <h2 class="project-title">Application Web Innovante</h2>
+        <p class="project-description">Développement d'une plateforme de gestion de projet collaborative en temps réel, permettant aux équipes distantes de travailler efficacement ensemble.</p>
+        <div class="skills-container">
+          <span class="skill">React</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">GraphQL</span>
+          <span class="skill">WebSockets</span>
+        </div>
+        <div class="project-details">
+          <p>Fonctionnalités clés :</p>
+          <ul>
+            <li>Tableaux Kanban personnalisables</li>
+            <li>Chat en temps réel</li>
+            <li>Intégration avec GitHub</li>
+            <li>Rapports et analyses avancés</li>
+          </ul>
+          <a href="https://projects.example.com/innovative-web-app" class="project-link">Voir le projet</a>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-icon">🎨</div>
+        <h2 class="project-title">Refonte UI/UX E-commerce</h2>
+        <p class="project-description">Transformation complète de l'expérience utilisateur pour une plateforme e-commerce majeure, augmentant le taux de conversion de 35% et la satisfaction client.</p>
+        <div class="skills-container">
+          <span class="skill">Figma</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">SASS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">A/B Testing</span>
+        </div>
+        <div class="project-details">
+          <p>Points forts :</p>
+          <ul>
+            <li>Design adaptatif pour mobile, tablette et desktop</li>
+            <li>Optimisation du tunnel de conversion</li>
+            <li>Implémentation d'un design système cohérent</li>
+            <li>Amélioration de l'accessibilité (WCAG 2.1 AA)</li>
+          </ul>
+          <a href="https://projects.example.com/ecommerce-ux-redesign" class="project-link">Explorer le redesign</a>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-icon">📊</div>
+        <h2 class="project-title">Tableau de Bord Analytique</h2>
+        <p class="project-description">Création d'un tableau de bord interactif pour une entreprise Fortune 500, visualisant des données complexes de vente et de performance en temps réel.</p>
+        <div class="skills-container">
+          <span class="skill">D3.js</span>
+          <span class="skill">Vue.js</span>
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">AWS</span>
+        </div>
+        <div class="project-details">
+          <p>Caractéristiques principales :</p>
+          <ul>
+            <li>Visualisations de données interactives et personnalisables</li>
+            <li>Intégration de multiples sources de données</li>
+            <li>Système d'alerte en temps réel</li>
+            <li>Rapports automatisés et export de données</li>
+          </ul>
+          <a href="https://projects.example.com/analytics-dashboard" class="project-link">Découvrir le dashboard</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-button" id="prevBtn">Précédent</button>
+      <button class="nav-button" id="nextBtn">Suivant</button>
+    </div>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const projects = document.querySelectorAll('.project');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      progress.style.width = `${(currentIndex + 1) / projects.length * 100}%`;
+      
+      projects.forEach((project, index) => {
+        if (index === currentIndex) {
+          project.classList.add('active');
+        } else {
+          project.classList.remove('active');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % projects.length;
+      updateCarousel();
+    });
+
+    // Animation automatique
+    let autoSlide = setInterval(() => {
+      currentIndex = (currentIndex + 1) % projects.length;
+      updateCarousel();
+    }, 7000);
+
+    // Arrêter l'animation automatique lorsque l'utilisateur interagit
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(autoSlide);
+    });
+
+    // Reprendre l'animation automatique lorsque l'utilisateur cesse d'interagir
+    carousel.addEventListener('mouseleave', () => {
+      autoSlide = setInterval(() => {
+        currentIndex = (currentIndex + 1) % projects.length;
+        updateCarousel();
+      }, 7000);
+    });
+
+    // Initialisation
+    updateCarousel();
+  </script>
+</body>
+</html>

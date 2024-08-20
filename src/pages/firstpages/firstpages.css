@@ -1,8 +1,9 @@
 /* Styles généraux */
 .firstAnimation {
+    overflow-y: hidden;
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: absolute;
     z-index: 0;
     background: #000;
     background-image: url(./NEUMORPHIC_CIRCLES_BACKGROUND.jpg);

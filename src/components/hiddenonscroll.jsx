@@ -1,64 +1,48 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react';
 import { gsap } from 'gsap';
 
-const HideOnScroll = ({ children }) => {
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [hidden, setHidden] = useState(false); // État pour gérer l'affichage
+const HideOnScroll = forwardRef(({ children, onAnimationComplete }, ref) => {
+  const [hidden, setHidden] = useState(false);
   const elementRef = useRef(null);
-  const buttonRef = useRef(null);
 
-  const getScrollTop = () => {
-    return document.documentElement.scrollTop || document.body.scrollTop;
-  };
-
-  const handleScroll = useCallback(() => {
-    const currentScrollTop = getScrollTop();
-
-    if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-      gsap.to(elementRef.current, { opacity: 0, y: -100, duration: 1, onComplete: () => setHidden(true) });
-    } else if (currentScrollTop < lastScrollTop) {
-      setHidden(false);
-      gsap.to(elementRef.current, { opacity: 1, y: 0, duration: 0.5 });
-    }
-
-    setLastScrollTop(currentScrollTop);
-  }, [lastScrollTop]);
-
-  const handleClick = () => {
+  // Méthode pour cacher le composant
+  const hideElement = () => {
     gsap.to(elementRef.current, {
       opacity: 0,
       y: -100,
       duration: 1,
-      onComplete: () => setHidden(true),
+      onComplete: () => {
+        setHidden(true);
+        if (onAnimationComplete) onAnimationComplete();
+      },
     });
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+  // Méthode pour réafficher le composant
+  const showElement = () => {
+    setHidden(false);
+    gsap.to(elementRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+    });
+  };
 
-    if (buttonRef.current) {
-      buttonRef.current.addEventListener('click', handleClick);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-
-      if (buttonRef.current) {
-        buttonRef.current.removeEventListener('click', handleClick);
-      }
-    };
-  }, [handleScroll]);
+  // Exposer la méthode showElement à l'extérieur via la référence
+  useImperativeHandle(ref, () => ({
+    showElement,
+  }));
 
   return (
     !hidden && (
-      <div ref={elementRef} style={{ position: 'sticky', top: 0, zIndex: 10 }}>
+      <div ref={elementRef} style={{ position: 'relative', top: 0, zIndex: 10 }}>
         {children}
-        <button ref={buttonRef} className="continue-btn">
+        <button onClick={hideElement} className="continue-btn">
           Continuer
         </button>
       </div>
     )
   );
-};
+});
 
 export default HideOnScroll;
