@@ -104,7 +104,8 @@ function Home() {
     <div className="home">
       <section className="projects">
         <h2>Mes Projets</h2>
-        <div className="carousel-container">
+        <div className='section-project'>
+                  <div className="carousel-container">
           <div
             className="carousel"
             ref={carouselRef}
@@ -141,6 +142,8 @@ function Home() {
             <div className="progress" id="progress" ref={progressRef}></div>
           </div>
         </div>
+        </div>
+
       </section>
 
       <section className="section">
