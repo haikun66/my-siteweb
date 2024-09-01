@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 .home{
     overflow-x: hidden;
     overflow-y: auto;
@@ -7,15 +8,12 @@
     background: #252230;
     color: #E5D4ED;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
   :root {
     --primary-color: #6c5ce7;
     --secondary-color: #a29bfe;
-    --text-color: #2d3436;
-    --bg-color: #f9f9f9;
+    --text-color: #ffffff;
+    --bg-color: #252230;
   }
-
   body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
@@ -34,7 +32,7 @@
   }.carousel-container {
       width: 90%;
       max-width: 1000px;
-      background-color: #fff;
+      background-color: var(--bg-color);
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       overflow: hidden;
@@ -80,7 +78,7 @@
       margin-bottom: 1.5rem;
     }.skill {
       background-color: var(--secondary-color);
-      color: #fff;
+      color: #252230;
       padding: 0.5rem 1rem;
       border-radius: 25px;
       font-size: 0.9rem;
@@ -115,7 +113,7 @@
       box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
     }.progress-bar {
       height: 5px;
-      background-color: #e0e0e0;
+      background-color: #252230;
       position: relative;
       overflow: hidden;
     }.progress {
@@ -147,17 +145,18 @@
         font-size: 2rem;
       }
     }
-    
     .section{
             display: flex;
             flex-direction: column;
             width: 100vw;
-        }.title2{
+        }.title2,.title1{
             width: 100%;
             text-align: center;
             font-size: xx-large;
             border-bottom: 3px solid black;
             border-width: 50%;
+            margin-bottom: 5rem;
+            margin-top: 5rem;
         }
         .contact{
                 display: flex;

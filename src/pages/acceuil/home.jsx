@@ -103,7 +103,7 @@ function Home() {
   return (
     <div className="home">
       <section className="projects">
-        <h2>Mes Projets</h2>
+        <h2 className='title1'>Mes Projets</h2>
         <div className='section-project'>
                   <div className="carousel-container">
           <div
