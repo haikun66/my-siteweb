@@ -176,7 +176,7 @@
                     align-items: end;
                     width: 65%;
                     height: 50%;
-                    }input{
+                    }input,textarea{
                         display: block;
                         width: 100%;
                         padding: 21px 6px;

@@ -1,11 +1,40 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import '../acceuil/home.css';
-const mail = require('./media/email.png');
+import Footer from '../../components/footer/footer';
+const email = require('./media/email.png');
 const tel = require('./media/telephone.png');
 const linkedin = require('./media/linkedin.png');
 const github = require('./media/github-logo.png');
 
 function Home() {
+  const [prenom, setPrenom] = useState('');
+  const [nom, setNom] = useState('');
+  const [mail, setMail] = useState('');
+  const [message, setMessage] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
+
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3008/api/send-email', { 
+        email: mail, 
+        subject: `Message from ${prenom} ${nom}`, 
+        message 
+      });
+      console.log(response);
+      setResponseMessage('Email sent successfully!');
+      setPrenom('');
+      setNom('');
+      setMail('');
+      setMessage('');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setResponseMessage('An error occurred while sending the email.');
+    }
+  };
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   const progressRef = useRef(null);
@@ -150,27 +179,62 @@ function Home() {
         <h2 className="title2">Contact</h2>
         <div className="contact">
           <div className="contact-left">
-            <form className="form" action="" method="post">
-              <div className="input-group1 input-group">
-                <label className="label" htmlFor="prenom">Prenom</label>
-                <input required type="text" name="prenom" id="prenom" placeholder="Entrer votre prénom" className="prenom" />
-              </div>
-              <div className="input-group1 input-group">
-                <label className="label" htmlFor="nom">Nom</label>
-                <input required type="text" name="nom" id="nom" placeholder="Entrer votre nom" className="nom" />
-              </div>
-              <div className="input-group2 input-group">
-                <label className="label" htmlFor="mail">Mail</label>
-                <input required type="email" name="mail" id="mail" placeholder="Entrer une email valide" className="email" />
-              </div>
-              <div className="input-group3 input-group">
-                <label className="label" htmlFor="message">Message</label>
-                <input required type="textarea" name="message" id="message" placeholder="Ecrivez votre message" className="text" />
-              </div>
-              <div className="button input-group">
-                <button type="submit" className="submit">Envoyer</button>
-              </div>
-            </form>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="input-group1 input-group">
+              <label className="label" htmlFor="prenom">Prenom</label>
+              <input
+                required
+                type="text"
+                name="prenom"
+                id="prenom"
+                placeholder="Entrer votre prénom"
+                className="prenom"
+                value={prenom}
+                onChange={(e) => setPrenom(e.target.value)}
+              />
+            </div>
+            <div className="input-group1 input-group">
+              <label className="label" htmlFor="nom">Nom</label>
+              <input
+                required
+                type="text"
+                name="nom"
+                id="nom"
+                placeholder="Entrer votre nom"
+                className="nom"
+                value={nom}
+                onChange={(e) => setNom(e.target.value)}
+              />
+            </div>
+            <div className="input-group2 input-group">
+              <label className="label" htmlFor="mail">Mail</label>
+              <input
+                required
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Entrer une email valide"
+                className="email"
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+              />
+            </div>
+            <div className="input-group3 input-group">
+              <label className="label" htmlFor="message">Message</label>
+              <textarea
+                required
+                name="message"
+                id="message"
+                placeholder="Ecrivez votre message"
+                className="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
+            <div className="button input-group">
+              <button type="submit" className="submit">Envoyer</button>
+            </div>
+          </form>
           </div>
           <div className="container-box">
             <div className="box">
@@ -182,7 +246,7 @@ function Home() {
               <h3>Linkedin</h3>
             </div>
             <div className="box">
-              <img className="logo" src={mail} alt="email" />
+              <img className="logo" src={email} alt="email" />
               <h3>hocine_gh@live.fr</h3>
             </div>
             <div className="box">
@@ -192,10 +256,7 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <footer>
-        <p>&copy; 2024 Mon Portfolio</p>
-      </footer>
+            <Footer/>
     </div>
   );
 }
